@@ -1,7 +1,7 @@
 import { Request } from 'express';
 
 type BarCodeParams = {
-  barCode: string;
+  digitableLine: string;
 };
 
 export type ShowBarCodeRequest = Request<BarCodeParams>;

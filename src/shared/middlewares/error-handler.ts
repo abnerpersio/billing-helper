@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+
 import { RequestError } from '../errors/request-error';
 
 export class ErrorHandler {

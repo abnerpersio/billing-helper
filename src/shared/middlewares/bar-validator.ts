@@ -1,16 +1,17 @@
 import { NextFunction, Response } from 'express';
 
-import { BAR_CODE_REGEX } from '../constants/billing';
-import { InvalidBarCode } from '../errors/invalid-bar-code';
+import { DIGITABLE_LINE_REGEX } from '../constants/billing';
+import { InvalidDigitableLine } from '../errors/invalid-digitable-line';
 import { ShowBarCodeRequest } from '../types/request';
 
 export class BarValidator {
   static execute(req: ShowBarCodeRequest, _res: Response, next: NextFunction) {
-    const { barCode } = req.params;
-    const regex = new RegExp(BAR_CODE_REGEX);
+    const { digitableLine } = req.params;
 
-    if (!barCode) throw new InvalidBarCode('Missing barcode');
-    if (!barCode.match(regex)) throw new InvalidBarCode();
+    if (!digitableLine) throw new InvalidDigitableLine('Missing digitable line');
+
+    const regex = new RegExp(DIGITABLE_LINE_REGEX);
+    if (!digitableLine.match(regex)) throw new InvalidDigitableLine();
 
     next();
   }
