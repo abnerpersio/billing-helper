@@ -62,6 +62,14 @@ Inicie o servidor:
 yarn start
 ```
 
+### Usando docker:
+
+Rode o projeto:
+```
+docker-compose up
+```
+
+
 Lembrando que também é válido usar o `npm`, não é obrigatório usar o `yarn` :)
 
 
