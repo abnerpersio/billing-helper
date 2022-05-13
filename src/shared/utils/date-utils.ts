@@ -9,7 +9,6 @@ export class DateUtils {
     const baseDate = '1997-10-07';
     const passedDays = parseInt(factor);
 
-    const date = dayjs(baseDate).add(passedDays, 'days');
-    return this.toFormat(date, 'YYYY-MM-DD');
+    return dayjs(baseDate).add(passedDays, 'days');
   }
 }

@@ -59,9 +59,11 @@ export class BankBilling {
     return parseFloat(`${value}.${cents}`);
   }
 
-  getDueDate() {
+  getDueDate(format = 'YYYY-MM-DD') {
     const dueDateFactor = this.digitableLine.substring(33, 37);
-    return DateUtils.dateFromFactor(dueDateFactor);
+
+    const date = DateUtils.dateFromFactor(dueDateFactor);
+    return DateUtils.toFormat(date, format);
   }
 
   private validateConvertedCode(barCode: string) {
