@@ -5,7 +5,7 @@ import { MathUtils } from '../utils/math-utils';
 
 export class ArrecadationBilling {
   private currencyCode: number;
-  private verificatorType: 'module10' | 'module11' | 'module11Arrecadation' | null;
+  private verificatorType: 'module10' | 'module11Arrecadation' | null;
 
   constructor(private digitableLine: string) {
     this.currencyCode = parseInt(digitableLine.charAt(2));
@@ -86,15 +86,9 @@ export class ArrecadationBilling {
 
     let formated = '';
     formated += digitableLine.substring(0, 11);
-    console.log('first', digitableLine.substring(0, 11));
-    // console.log('value', digitableLine.substring(5, 15));
     formated += digitableLine.substring(12, 23);
-    console.log('second', digitableLine.substring(12, 23));
     formated += digitableLine.substring(24, 35);
-    console.log('third', digitableLine.substring(24, 35));
     formated += digitableLine.substring(36, 47);
-    console.log('thourth', digitableLine.substring(36, 47));
-
     return formated;
   }
 

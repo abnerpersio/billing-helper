@@ -40,7 +40,6 @@ export class BankBilling {
 
     if (hasFourthBlock) {
       const converted = this.digitableToCode();
-
       if (!this.validateConvertedCode(converted)) return false;
     }
 

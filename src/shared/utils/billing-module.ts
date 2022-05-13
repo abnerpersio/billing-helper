@@ -16,7 +16,6 @@ export class BillingModule {
     const result = this.multiplicateModule10(reversed);
 
     const sum = MathUtils.sumAllNumbers(result);
-    // console.log({ sum });
     const tenRounded = MathUtils.roundToTen(sum);
 
     const subtract = tenRounded - sum;
@@ -55,7 +54,6 @@ export class BillingModule {
       multiplier += 1;
       if (multiplier > 9) multiplier = 2;
 
-      console.log({ multiplier });
       return number * multiplier;
     });
   }
