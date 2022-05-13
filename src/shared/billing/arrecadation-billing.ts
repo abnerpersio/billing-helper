@@ -1,5 +1,7 @@
 import { BAR_CODE_ARRECADATION_REGEX, DIGITABLE_ARRECADATION_REGEX } from '../constants/billing';
 import { BillingModule } from '../utils/billing-module';
+import { DateUtils } from '../utils/date-utils';
+import { MathUtils } from '../utils/math-utils';
 
 export class ArrecadationBilling {
   private currencyCode: number;
@@ -51,14 +53,19 @@ export class ArrecadationBilling {
     return this.digitableToCode();
   }
 
-  // TODO
   getAmount() {
-    return this.digitableLine.substring(4, 15);
+    const barCode = this.digitableToCode();
+    const amount = barCode.substring(4, 15);
+
+    return MathUtils.formatAmount(amount);
   }
 
-  // TODO
-  getDueDate() {
-    return this.digitableLine.substring(23, 31);
+  getDueDate(format = 'YYYY-MM-DD') {
+    const barCode = this.digitableToCode();
+    const dueDateFactor = barCode.substring(19, 27);
+
+    const date = DateUtils.fromCustomFormat(dueDateFactor, 'YYYYMMDD');
+    return DateUtils.toFormat(date, format);
   }
 
   private validateConvertedCode(barCode: string) {
@@ -79,9 +86,14 @@ export class ArrecadationBilling {
 
     let formated = '';
     formated += digitableLine.substring(0, 11);
+    console.log('first', digitableLine.substring(0, 11));
+    // console.log('value', digitableLine.substring(5, 15));
     formated += digitableLine.substring(12, 23);
+    console.log('second', digitableLine.substring(12, 23));
     formated += digitableLine.substring(24, 35);
+    console.log('third', digitableLine.substring(24, 35));
     formated += digitableLine.substring(36, 47);
+    console.log('thourth', digitableLine.substring(36, 47));
 
     return formated;
   }

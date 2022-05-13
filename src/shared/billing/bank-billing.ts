@@ -1,6 +1,7 @@
 import { BAR_CODE_BANK_REGEX } from '../constants/billing';
 import { BillingModule } from '../utils/billing-module';
 import { DateUtils } from '../utils/date-utils';
+import { MathUtils } from '../utils/math-utils';
 
 export class BankBilling {
   constructor(private digitableLine: string) {}
@@ -52,17 +53,13 @@ export class BankBilling {
 
   getAmount() {
     const amount = this.digitableLine.substring(37, 47);
-
-    const value = amount.slice(0, -2);
-    const cents = amount.slice(-2);
-
-    return parseFloat(`${value}.${cents}`);
+    return MathUtils.formatAmount(amount);
   }
 
   getDueDate(format = 'YYYY-MM-DD') {
     const dueDateFactor = this.digitableLine.substring(33, 37);
 
-    const date = DateUtils.dateFromFactor(dueDateFactor);
+    const date = DateUtils.fromFactor(dueDateFactor);
     return DateUtils.toFormat(date, format);
   }
 

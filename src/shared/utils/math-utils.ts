@@ -20,4 +20,11 @@ export class MathUtils {
   static getTenModule(number: number) {
     return number % 10;
   }
+
+  static formatAmount(amount: string) {
+    const value = amount.slice(0, -2);
+    const cents = amount.slice(-2);
+
+    return parseFloat(`${value}.${cents}`).toFixed(2);
+  }
 }

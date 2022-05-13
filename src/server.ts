@@ -7,6 +7,7 @@ import { ErrorHandler } from './shared/middlewares/error-handler';
 
 export const server = express();
 
+server.use(express.json());
 server.use(CorsMiddleware.execute);
 
 server.use(routes);
