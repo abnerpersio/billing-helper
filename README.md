@@ -1,18 +1,16 @@
 <h1 align="center" style="font-weight: bold;">Billing Helper 💰</h1>
 
 <p align="center">
- <a href="#tech">Technologies</a> • 
- <a href="#started">Getting Started</a> • 
-  <a href="#routes">APP Routes</a> •
- <a href="#colab">Collaborators</a> •
- <a href="#contribute">Contribute</a>
+ <a href="#tech">Technologias</a> • 
+ <a href="#running">Rodando localmente</a> • 
+ <a href="#routes">Rotas da API</a>
 </p>
 
 <p align="center">
     <b>uma API REST para te ajudar na validação dos seus boletos e contas a pagar.</b>
 </p>
 
-<h2 id="technologies">💻 Technologias</h2>
+<h2 id="tech">💻 Technologias</h2>
 
 - Node
 - Typescript
@@ -20,7 +18,7 @@
 - Jest
 - Docker
 
-<h2 id="started">🚀 Rodando localmente</h2>
+<h2 id="running">🚀 Rodando localmente</h2>
 
 Clone o projeto
 ```
