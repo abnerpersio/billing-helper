@@ -15,7 +15,7 @@ export class BillingModule {
 
     const result = this.multiplicateModule10(reversed);
 
-    const sum = MathUtils.sumAllNumbers(result);
+    const sum = MathUtils.sumAllDigits(result);
     const tenRounded = MathUtils.roundToTen(sum);
 
     const subtract = tenRounded - sum;
@@ -39,7 +39,7 @@ export class BillingModule {
 
     const result = this.multiplicateModule11(reversed);
 
-    const sum = MathUtils.sumAllNumbers(result);
+    const sum = MathUtils.sumAll(result);
     const rest = sum % 11;
     const DV = 11 - rest;
 
@@ -51,10 +51,12 @@ export class BillingModule {
     let multiplier = 2;
 
     return numbers.map((number: number) => {
+      const result = number * multiplier;
+
       multiplier += 1;
       if (multiplier > 9) multiplier = 2;
 
-      return number * multiplier;
+      return result;
     });
   }
 
@@ -66,7 +68,7 @@ export class BillingModule {
 
     const result = this.multiplicateModule11(reversed);
 
-    const sum = MathUtils.sumAllNumbers(result);
+    const sum = MathUtils.sumAll(result);
     const rest = sum % 11;
 
     if (rest === 0 || rest === 1) return 0;

@@ -3,18 +3,22 @@ export class MathUtils {
     return Math.ceil(number / 10) * 10;
   }
 
-  static sumAllNumbers(numbers: number[]): number {
+  static sumAllDigits(numbers: number[]): number {
     return numbers.reduce((acc: number, number: number) => {
       if (number >= 10) {
         const result = String(number)
           .split('')
           .map((n) => parseInt(n));
 
-        return acc + this.sumAllNumbers(result);
+        return acc + this.sumAllDigits(result);
       }
 
       return acc + number;
     }, 0);
+  }
+
+  static sumAll(numbers: number[]): number {
+    return numbers.reduce((acc: number, number: number) => acc + number, 0);
   }
 
   static getTenModule(number: number) {
